@@ -77,14 +77,14 @@ int main(int argc, char **argv, char **env) {
       cout << "i=" << i << endl;
       break;
     }
-    top->in_0 = in;
+    top->in_arg_1_0_0 = in;
     //cout << "in: " << in << endl;
  
     top->eval();
     //negedge ---------------
     
     if (i >=delay) {
-      uint16_t out = top->out & 0xff;
+      uint16_t out = top->out_0_0 & 0xff;
       //cout << "out: " << out << endl;
       ofile.write((char*)&out,1);
     }
@@ -96,12 +96,12 @@ int main(int argc, char **argv, char **env) {
     //posedge ---------------
   }
 
-  top->in_0 = 0; //Dont care
+  top->in_arg_1_0_0 = 0; //Dont care
   for (int i=0; i<delay; ++i) {
     top->clk = 0;
     top->eval();
     //negedge ---------------
-    uint16_t out = top->out;
+    uint16_t out = top->out_0_0;
     ofile.write((char*)&out,1);
     
     top->clk = 1;
