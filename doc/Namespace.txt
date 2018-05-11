@@ -1,0 +1,15 @@
+Nested Namespaces:
+
+Plan:
+  The goal is that nested namespaces will feel similar to the module like import system in a language like python.
+  The top level should not be a namespace. (If it is an actual namespace object, it should not actually allow for the creation of modules/generators/typegens)
+  The context should create a single top, but every time it loads a new file, it should be loaded into a boxed top. After that it can be merged.
+
+  Within each namespace, you can create new namespaces, and you can import namespaces.
+
+  You are only allowed to use modules in your own current namespace/downstream namespaces OR namespaces that were explicitly imported into the current namespace.
+
+
+
+
+
